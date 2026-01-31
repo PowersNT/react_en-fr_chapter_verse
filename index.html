@@ -1,0 +1,1099 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>react_en-fr_chapter_verse</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+
+
+show me a landing page that can toggle between English and French language versions that is built with HTML, CSS, JavaScript, React, and Context API
+
+10:48 AM
+I'll create a bilingual landing page with language toggle functionality using React and Context API.
+
+Checking the frontend-design skill for best practices on creating high-quality web interfaces
+Now I'll create a distinctive bilingual landing page with React and Context API:
+
+
+Creating a bilingual landing page with React, Context API, and a bold retro-futuristic design aesthetic
+bilingual-landing.jsx
+
+Presented file
+I've created a bilingual landing page with a retro-futuristic aesthetic that toggles between English and French. Here's what's included:
+
+React Architecture:
+
+Context API for state management (LanguageContext)
+Custom Hook (useLanguage) for easy access to language state
+Modular Components: Navigation, Hero, Features, Footer, and LanguageToggle
+Key Features:
+
+Click the EN/FR toggle in the navigation to switch languages
+All content updates dynamically using the Context API
+Smooth animations and transitions throughout
+Responsive design that works on all devices
+Design Highlights:
+
+Retro-futuristic aesthetic with Orbitron and Manrope fonts
+Animated gradient orbs and grid overlay
+Glowing effects and smooth hover animations
+Cyan and purple color scheme against a dark background
+Floating animations and staggered fade-in effects
+The Context API pattern makes it easy to add more languages or extend the translation system. Simply add new language objects to the translations object and update the toggle logic!
+
+Bilingual landing
+Code · JSX 
+show me a landing page for a bookstore that can toggle between English and French language versions that is built with HTML, CSS, JavaScript, React, and Context API
+
+10:50 AM
+I'll create a bookstore landing page with bilingual support using React and Context API.
+
+
+Creating a bookstore landing page with English/French toggle using React and Context API, with a warm literary aesthetic
+bookstore-landing.jsx
+
+Presented file
+I've created a warm, literary-themed bookstore landing page with English/French language toggle! Here's what's included:
+
+React Architecture:
+
+Context API with LanguageContext for centralized state management
+Custom Hook (useLanguage) for easy access throughout components
+Modular Components: Navigation, Hero, FeaturedBooks, Services, Newsletter, Footer
+Key Features:
+
+Language Toggle: Click the flag icons (🇬🇧/🇫🇷) to switch between English and French
+Book Cards: 4 featured books with hover animations
+Category Tabs: Filter between New Arrivals, Bestsellers, and Staff Picks
+Newsletter Signup: Bilingual form for email subscriptions
+Services Section: Highlights bookstore features
+Design Aesthetic:
+
+Classic Literary Feel: Playfair Display for headings, Lora for body text
+Warm Color Palette: Cream backgrounds, coffee browns, burgundy accents
+Vintage Details: Book spine effects, textured gradients, serif typography
+Smooth Animations: Floating books, hover transitions, fade-in effects
+Cozy Atmosphere: Evokes the feeling of browsing in a traditional bookshop
+The Context API makes it simple to expand with more languages—just add them to the translations object!
+
+Bookstore landing
+Code · JSX 
+
+
+Claude is AI and can make mistakes. Please double-check responses.
+Bookstore landing · JSX
+Copy
+
+import React, { createContext, useContext, useState } from 'react';
+
+// Language Context - LanguageContext.jsx
+const LanguageContext = createContext();
+
+const translations = {
+  en: {
+    nav: {
+      home: 'Home',
+      catalog: 'Catalog',
+      events: 'Events',
+      about: 'About Us',
+      contact: 'Contact'
+    },
+    hero: {
+      title: 'Where Stories Come Alive',
+      subtitle: 'Discover your next great read in our curated collection of timeless classics and contemporary favorites',
+      cta: 'Browse Collection',
+      secondary: 'Join Our Book Club'
+    },
+    featured: {
+      title: 'Featured This Month',
+      newArrivals: 'New Arrivals',
+      bestsellers: 'Bestsellers',
+      staffPicks: 'Staff Picks'
+    },
+    books: {
+      book1: {
+        title: 'The Midnight Garden',
+        author: 'Elena Rivers',
+        category: 'Fiction',
+        price: '$24.99'
+      },
+      book2: {
+        title: 'Echoes of Time',
+        author: 'Marcus Chen',
+        category: 'Science Fiction',
+        price: '$28.50'
+      },
+      book3: {
+        title: 'The Last Poet',
+        author: 'Sophie Laurent',
+        category: 'Poetry',
+        price: '$19.99'
+      },
+      book4: {
+        title: 'Recipes from Home',
+        author: 'Maria Gonzalez',
+        category: 'Cooking',
+        price: '$32.00'
+      }
+    },
+    services: {
+      title: 'Why Choose Us',
+      service1: {
+        title: 'Curated Selection',
+        desc: 'Every book is carefully chosen by our passionate team of readers'
+      },
+      service2: {
+        title: 'Author Events',
+        desc: 'Meet your favorite authors at our monthly book signings and readings'
+      },
+      service3: {
+        title: 'Cozy Reading Space',
+        desc: 'Enjoy our café and reading nooks while you explore new titles'
+      }
+    },
+    newsletter: {
+      title: 'Join Our Literary Community',
+      subtitle: 'Get exclusive book recommendations, early access to events, and special offers',
+      placeholder: 'Enter your email',
+      button: 'Subscribe'
+    },
+    footer: {
+      hours: 'Hours',
+      schedule: 'Mon-Sat: 9AM - 9PM | Sun: 10AM - 6PM',
+      location: 'Location',
+      address: '123 Book Lane, Literary District',
+      rights: 'All rights reserved.',
+      tagline: 'A haven for book lovers since 1985'
+    }
+  },
+  fr: {
+    nav: {
+      home: 'Accueil',
+      catalog: 'Catalogue',
+      events: 'Événements',
+      about: 'À propos',
+      contact: 'Contact'
+    },
+    hero: {
+      title: 'Où les histoires prennent vie',
+      subtitle: 'Découvrez votre prochaine grande lecture dans notre collection soigneusement sélectionnée de classiques intemporels et de favoris contemporains',
+      cta: 'Parcourir la collection',
+      secondary: 'Rejoindre notre club de lecture'
+    },
+    featured: {
+      title: 'En vedette ce mois-ci',
+      newArrivals: 'Nouveautés',
+      bestsellers: 'Meilleures ventes',
+      staffPicks: 'Coups de cœur'
+    },
+    books: {
+      book1: {
+        title: 'Le Jardin de Minuit',
+        author: 'Elena Rivers',
+        category: 'Fiction',
+        price: '24,99 $'
+      },
+      book2: {
+        title: 'Échos du Temps',
+        author: 'Marcus Chen',
+        category: 'Science-fiction',
+        price: '28,50 $'
+      },
+      book3: {
+        title: 'Le Dernier Poète',
+        author: 'Sophie Laurent',
+        category: 'Poésie',
+        price: '19,99 $'
+      },
+      book4: {
+        title: 'Recettes de la Maison',
+        author: 'Maria Gonzalez',
+        category: 'Cuisine',
+        price: '32,00 $'
+      }
+    },
+    services: {
+      title: 'Pourquoi nous choisir',
+      service1: {
+        title: 'Sélection soignée',
+        desc: 'Chaque livre est soigneusement choisi par notre équipe passionnée de lecteurs'
+      },
+      service2: {
+        title: 'Rencontres d\'auteurs',
+        desc: 'Rencontrez vos auteurs préférés lors de nos séances de dédicaces mensuelles'
+      },
+      service3: {
+        title: 'Espace de lecture confortable',
+        desc: 'Profitez de notre café et de nos coins lecture pendant que vous explorez de nouveaux titres'
+      }
+    },
+    newsletter: {
+      title: 'Rejoignez notre communauté littéraire',
+      subtitle: 'Recevez des recommandations de livres exclusives, un accès anticipé aux événements et des offres spéciales',
+      placeholder: 'Entrez votre courriel',
+      button: 'S\'abonner'
+    },
+    footer: {
+      hours: 'Heures',
+      schedule: 'Lun-Sam: 9h - 21h | Dim: 10h - 18h',
+      location: 'Emplacement',
+      address: '123 Rue des Livres, Quartier Littéraire',
+      rights: 'Tous droits réservés.',
+      tagline: 'Un refuge pour les amoureux des livres depuis 1985'
+    }
+  }
+};
+
+// Custom Hook - CustomHook.jsx
+const useLanguage = () => {
+  const context = useContext(LanguageContext);
+  if (!context) {
+    throw new Error('useLanguage must be used within LanguageProvider');
+  }
+  return context;
+};
+
+// Language Provider - LanguageProvider.jsx
+const LanguageProvider = ({ children }) => {
+  const [language, setLanguage] = useState('en');
+  
+  const toggleLanguage = () => {
+    setLanguage(prev => prev === 'en' ? 'fr' : 'en');
+  };
+  
+  const t = translations[language];
+  
+  return (
+    <LanguageContext.Provider value={{ language, toggleLanguage, t }}>
+      {children}
+    </LanguageContext.Provider>
+  );
+};
+
+// Language Toggle Component - LanguageToggle.jsx
+const LanguageToggle = () => {
+  const { language, toggleLanguage } = useLanguage();
+  
+  return (
+    <button onClick={toggleLanguage} className="lang-toggle" aria-label="Toggle language">
+      <span className={`lang-flag ${language === 'en' ? 'active' : ''}`}>🇬🇧</span>
+      <span className={`lang-flag ${language === 'fr' ? 'active' : ''}`}>🇫🇷</span>
+    </button>
+  );
+};
+
+// Navigation Component - Navigation.jsx
+const Navigation = () => {
+  const { t } = useLanguage();
+  
+  return (
+    <nav className="navigation">
+      <div className="nav-container">
+        <div className="logo">
+          <span className="logo-icon">📚</span>
+          <div className="logo-text">
+            <div className="logo-name">Chapter & Verse</div>
+            <div className="logo-tagline">Bookshop</div>
+          </div>
+        </div>
+        <div className="nav-links">
+          <a href="#home">{t.nav.home}</a>
+          <a href="#catalog">{t.nav.catalog}</a>
+          <a href="#events">{t.nav.events}</a>
+          <a href="#about">{t.nav.about}</a>
+          <a href="#contact">{t.nav.contact}</a>
+        </div>
+        <LanguageToggle />
+      </div>
+    </nav>
+  );
+};
+
+// Hero Section
+const Hero = () => {
+  const { t } = useLanguage();
+  
+  return (
+    <section className="hero">
+      <div className="hero-content">
+        <h1 className="hero-title">{t.hero.title}</h1>
+        <p className="hero-subtitle">{t.hero.subtitle}</p>
+        <div className="hero-cta">
+          <button className="btn btn-primary">{t.hero.cta}</button>
+          <button className="btn btn-secondary">{t.hero.secondary}</button>
+        </div>
+      </div>
+      <div className="hero-decoration">
+        <div className="book-stack"></div>
+      </div>
+    </section>
+  );
+};
+
+// Book Card Component - BookCard.jsx
+const BookCard = ({ book }) => {
+  return (
+    <div className="book-card">
+      <div className="book-cover">
+        <div className="book-spine"></div>
+      </div>
+      <div className="book-info">
+        <h3 className="book-title">{book.title}</h3>
+        <p className="book-author">{book.author}</p>
+        <span className="book-category">{book.category}</span>
+        <div className="book-footer">
+          <span className="book-price">{book.price}</span>
+          <button className="btn-add">+</button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Featured Books Section
+const FeaturedBooks = () => {
+  const { t } = useLanguage();
+  
+  const books = [
+    t.books.book1,
+    t.books.book2,
+    t.books.book3,
+    t.books.book4
+  ];
+  
+  return (
+    <section className="featured-books">
+      <h2 className="section-title">{t.featured.title}</h2>
+      <div className="book-categories">
+        <button className="category-tab active">{t.featured.newArrivals}</button>
+        <button className="category-tab">{t.featured.bestsellers}</button>
+        <button className="category-tab">{t.featured.staffPicks}</button>
+      </div>
+      <div className="books-grid">
+        {books.map((book, index) => (
+          <BookCard key={index} book={book} />
+        ))}
+      </div>
+    </section>
+  );
+};
+
+// Services Section
+const Services = () => {
+  const { t } = useLanguage();
+  
+  const services = [
+    { icon: '✨', data: t.services.service1 },
+    { icon: '✍️', data: t.services.service2 },
+    { icon: '☕', data: t.services.service3 }
+  ];
+  
+  return (
+    <section className="services">
+      <h2 className="section-title">{t.services.title}</h2>
+      <div className="services-grid">
+        {services.map((service, index) => (
+          <div className="service-card" key={index}>
+            <div className="service-icon">{service.icon}</div>
+            <h3 className="service-title">{service.data.title}</h3>
+            <p className="service-desc">{service.data.desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+// Newsletter Section
+const Newsletter = () => {
+  const { t } = useLanguage();
+  
+  return (
+    <section className="newsletter">
+      <div className="newsletter-content">
+        <h2 className="newsletter-title">{t.newsletter.title}</h2>
+        <p className="newsletter-subtitle">{t.newsletter.subtitle}</p>
+        <form className="newsletter-form">
+          <input 
+            type="email" 
+            placeholder={t.newsletter.placeholder}
+            className="newsletter-input"
+          />
+          <button type="submit" className="btn btn-primary">{t.newsletter.button}</button>
+        </form>
+      </div>
+    </section>
+  );
+};
+
+// Footer Component - Footer.jsx
+const Footer = () => {
+  const { t } = useLanguage();
+  
+  return (
+    <footer className="footer">
+      <div className="footer-content">
+        <div className="footer-section">
+          <h4>{t.footer.hours}</h4>
+          <p>{t.footer.schedule}</p>
+        </div>
+        <div className="footer-section">
+          <h4>{t.footer.location}</h4>
+          <p>{t.footer.address}</p>
+        </div>
+        <div className="footer-section">
+          <div className="footer-logo">Chapter & Verse</div>
+          <p className="footer-tagline">{t.footer.tagline}</p>
+        </div>
+      </div>
+      <div className="footer-bottom">
+        <p>© 2026 Chapter & Verse. {t.footer.rights}</p>
+      </div>
+    </footer>
+  );
+};
+
+// Main App Component - App.jsx
+const App = () => {
+  return (
+    <LanguageProvider>
+      <div className="app">
+        <Navigation />
+        <Hero />
+        <FeaturedBooks />
+        <Services />
+        <Newsletter />
+        <Footer />
+      </div>
+      
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lora:wght@400;500;600&family=Crimson+Pro:wght@300;400;600&display=swap');
+        
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+        
+        :root {
+          --cream: #faf8f3;
+          --warm-white: #fff9f0;
+          --coffee: #3e2723;
+          --coffee-light: #5d4037;
+          --burgundy: #8b4049;
+          --sage: #8a9a5b;
+          --gold: #d4af37;
+          --text-primary: #2c1810;
+          --text-secondary: #6d5d52;
+        }
+        
+        body {
+          font-family: 'Lora', serif;
+          background: var(--cream);
+          color: var(--text-primary);
+          line-height: 1.7;
+        }
+        
+        .app {
+          min-height: 100vh;
+        }
+        
+        /* Navigation */
+        .navigation {
+          position: sticky;
+          top: 0;
+          background: rgba(250, 248, 243, 0.95);
+          backdrop-filter: blur(10px);
+          border-bottom: 2px solid var(--coffee);
+          z-index: 1000;
+          box-shadow: 0 4px 20px rgba(62, 39, 35, 0.08);
+        }
+        
+        .nav-container {
+          max-width: 1400px;
+          margin: 0 auto;
+          padding: 1.25rem 2rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+        
+        .logo {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+        }
+        
+        .logo-icon {
+          font-size: 2.5rem;
+          filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));
+        }
+        
+        .logo-text {
+          display: flex;
+          flex-direction: column;
+        }
+        
+        .logo-name {
+          font-family: 'Playfair Display', serif;
+          font-size: 1.5rem;
+          font-weight: 700;
+          color: var(--coffee);
+          line-height: 1;
+        }
+        
+        .logo-tagline {
+          font-family: 'Crimson Pro', serif;
+          font-size: 0.85rem;
+          color: var(--burgundy);
+          letter-spacing: 0.15em;
+          text-transform: uppercase;
+          margin-top: 0.25rem;
+        }
+        
+        .nav-links {
+          display: flex;
+          gap: 2.5rem;
+        }
+        
+        .nav-links a {
+          color: var(--text-secondary);
+          text-decoration: none;
+          font-size: 1rem;
+          transition: all 0.3s ease;
+          position: relative;
+          font-weight: 500;
+        }
+        
+        .nav-links a::after {
+          content: '';
+          position: absolute;
+          bottom: -5px;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background: var(--burgundy);
+          transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+          color: var(--burgundy);
+        }
+        
+        .nav-links a:hover::after {
+          width: 100%;
+        }
+        
+        .lang-toggle {
+          display: flex;
+          gap: 0.5rem;
+          background: var(--warm-white);
+          border: 2px solid var(--coffee);
+          border-radius: 2rem;
+          padding: 0.5rem 1rem;
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+        
+        .lang-toggle:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(62, 39, 35, 0.15);
+        }
+        
+        .lang-flag {
+          font-size: 1.5rem;
+          opacity: 0.4;
+          transition: all 0.3s ease;
+          filter: grayscale(1);
+        }
+        
+        .lang-flag.active {
+          opacity: 1;
+          filter: grayscale(0);
+          transform: scale(1.1);
+        }
+        
+        /* Hero Section */
+        .hero {
+          padding: 6rem 2rem;
+          max-width: 1400px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 4rem;
+          align-items: center;
+          min-height: 70vh;
+        }
+        
+        .hero-content {
+          animation: fadeInLeft 1s ease-out;
+        }
+        
+        @keyframes fadeInLeft {
+          from {
+            opacity: 0;
+            transform: translateX(-30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        
+        .hero-title {
+          font-family: 'Playfair Display', serif;
+          font-size: clamp(2.5rem, 6vw, 4.5rem);
+          font-weight: 900;
+          line-height: 1.1;
+          margin-bottom: 1.5rem;
+          color: var(--coffee);
+        }
+        
+        .hero-subtitle {
+          font-size: 1.2rem;
+          color: var(--text-secondary);
+          margin-bottom: 2.5rem;
+          line-height: 1.8;
+        }
+        
+        .hero-cta {
+          display: flex;
+          gap: 1rem;
+          flex-wrap: wrap;
+        }
+        
+        .btn {
+          padding: 1rem 2rem;
+          font-family: 'Crimson Pro', serif;
+          font-weight: 600;
+          font-size: 1rem;
+          border: none;
+          border-radius: 0.5rem;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          letter-spacing: 0.05em;
+        }
+        
+        .btn-primary {
+          background: var(--coffee);
+          color: var(--cream);
+          box-shadow: 0 4px 15px rgba(62, 39, 35, 0.2);
+        }
+        
+        .btn-primary:hover {
+          background: var(--coffee-light);
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(62, 39, 35, 0.3);
+        }
+        
+        .btn-secondary {
+          background: transparent;
+          color: var(--burgundy);
+          border: 2px solid var(--burgundy);
+        }
+        
+        .btn-secondary:hover {
+          background: var(--burgundy);
+          color: var(--cream);
+          transform: translateY(-2px);
+        }
+        
+        .hero-decoration {
+          position: relative;
+          height: 400px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        
+        .book-stack {
+          width: 300px;
+          height: 350px;
+          position: relative;
+          animation: float 6s ease-in-out infinite;
+        }
+        
+        .book-stack::before,
+        .book-stack::after {
+          content: '';
+          position: absolute;
+          background: linear-gradient(135deg, var(--burgundy), var(--coffee));
+          border-radius: 4px;
+          box-shadow: 
+            0 10px 30px rgba(0,0,0,0.2),
+            inset 0 0 20px rgba(255,255,255,0.1);
+        }
+        
+        .book-stack::before {
+          width: 200px;
+          height: 280px;
+          top: 0;
+          left: 20px;
+          transform: rotate(-5deg);
+        }
+        
+        .book-stack::after {
+          width: 180px;
+          height: 260px;
+          bottom: 0;
+          right: 20px;
+          transform: rotate(8deg);
+          background: linear-gradient(135deg, var(--sage), var(--coffee-light));
+        }
+        
+        @keyframes float {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-20px); }
+        }
+        
+        /* Featured Books Section */
+        .featured-books {
+          padding: 6rem 2rem;
+          max-width: 1400px;
+          margin: 0 auto;
+          background: var(--warm-white);
+        }
+        
+        .section-title {
+          font-family: 'Playfair Display', serif;
+          font-size: clamp(2rem, 5vw, 3.5rem);
+          font-weight: 900;
+          text-align: center;
+          margin-bottom: 3rem;
+          color: var(--coffee);
+        }
+        
+        .book-categories {
+          display: flex;
+          justify-content: center;
+          gap: 1rem;
+          margin-bottom: 3rem;
+          flex-wrap: wrap;
+        }
+        
+        .category-tab {
+          padding: 0.75rem 1.5rem;
+          background: transparent;
+          border: 2px solid var(--coffee);
+          border-radius: 2rem;
+          font-family: 'Crimson Pro', serif;
+          font-size: 1rem;
+          font-weight: 600;
+          color: var(--text-secondary);
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+        
+        .category-tab.active,
+        .category-tab:hover {
+          background: var(--coffee);
+          color: var(--cream);
+        }
+        
+        .books-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+          gap: 2rem;
+        }
+        
+        .book-card {
+          background: white;
+          border-radius: 1rem;
+          overflow: hidden;
+          transition: all 0.4s ease;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        
+        .book-card:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+        
+        .book-cover {
+          height: 300px;
+          background: linear-gradient(135deg, var(--burgundy), var(--coffee));
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .book-cover::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: 
+            repeating-linear-gradient(
+              90deg,
+              transparent,
+              transparent 2px,
+              rgba(255,255,255,0.03) 2px,
+              rgba(255,255,255,0.03) 4px
+            );
+        }
+        
+        .book-spine {
+          position: absolute;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          width: 15px;
+          background: linear-gradient(to right, rgba(0,0,0,0.3), transparent);
+        }
+        
+        .book-info {
+          padding: 1.5rem;
+        }
+        
+        .book-title {
+          font-family: 'Playfair Display', serif;
+          font-size: 1.3rem;
+          font-weight: 700;
+          margin-bottom: 0.5rem;
+          color: var(--coffee);
+        }
+        
+        .book-author {
+          color: var(--text-secondary);
+          font-size: 0.95rem;
+          margin-bottom: 0.75rem;
+        }
+        
+        .book-category {
+          display: inline-block;
+          padding: 0.25rem 0.75rem;
+          background: var(--sage);
+          color: white;
+          font-size: 0.75rem;
+          border-radius: 1rem;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          font-weight: 600;
+        }
+        
+        .book-footer {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-top: 1rem;
+          padding-top: 1rem;
+          border-top: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .book-price {
+          font-family: 'Playfair Display', serif;
+          font-size: 1.5rem;
+          font-weight: 700;
+          color: var(--burgundy);
+        }
+        
+        .btn-add {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background: var(--coffee);
+          color: white;
+          border: none;
+          font-size: 1.5rem;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        
+        .btn-add:hover {
+          background: var(--burgundy);
+          transform: rotate(90deg);
+        }
+        
+        /* Services Section */
+        .services {
+          padding: 6rem 2rem;
+          max-width: 1400px;
+          margin: 0 auto;
+        }
+        
+        .services-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 3rem;
+          margin-top: 3rem;
+        }
+        
+        .service-card {
+          text-align: center;
+          padding: 2rem;
+        }
+        
+        .service-icon {
+          font-size: 4rem;
+          margin-bottom: 1.5rem;
+          filter: drop-shadow(2px 2px 8px rgba(0,0,0,0.1));
+        }
+        
+        .service-title {
+          font-family: 'Playfair Display', serif;
+          font-size: 1.5rem;
+          font-weight: 700;
+          margin-bottom: 1rem;
+          color: var(--coffee);
+        }
+        
+        .service-desc {
+          color: var(--text-secondary);
+          line-height: 1.8;
+        }
+        
+        /* Newsletter Section */
+        .newsletter {
+          background: linear-gradient(135deg, var(--burgundy), var(--coffee));
+          padding: 5rem 2rem;
+          color: white;
+        }
+        
+        .newsletter-content {
+          max-width: 800px;
+          margin: 0 auto;
+          text-align: center;
+        }
+        
+        .newsletter-title {
+          font-family: 'Playfair Display', serif;
+          font-size: clamp(2rem, 5vw, 3rem);
+          font-weight: 900;
+          margin-bottom: 1rem;
+        }
+        
+        .newsletter-subtitle {
+          font-size: 1.1rem;
+          margin-bottom: 2.5rem;
+          opacity: 0.9;
+        }
+        
+        .newsletter-form {
+          display: flex;
+          gap: 1rem;
+          max-width: 600px;
+          margin: 0 auto;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        
+        .newsletter-input {
+          flex: 1;
+          min-width: 250px;
+          padding: 1rem 1.5rem;
+          border: none;
+          border-radius: 0.5rem;
+          font-family: 'Lora', serif;
+          font-size: 1rem;
+          background: rgba(255,255,255,0.95);
+        }
+        
+        .newsletter-input:focus {
+          outline: 3px solid var(--gold);
+        }
+        
+        /* Footer */
+        .footer {
+          background: var(--coffee);
+          color: var(--cream);
+          padding: 4rem 2rem 2rem;
+        }
+        
+        .footer-content {
+          max-width: 1400px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 3rem;
+          margin-bottom: 3rem;
+        }
+        
+        .footer-section h4 {
+          font-family: 'Playfair Display', serif;
+          font-size: 1.3rem;
+          margin-bottom: 1rem;
+          color: var(--gold);
+        }
+        
+        .footer-section p {
+          opacity: 0.9;
+          line-height: 1.8;
+        }
+        
+        .footer-logo {
+          font-family: 'Playfair Display', serif;
+          font-size: 2rem;
+          font-weight: 700;
+          margin-bottom: 1rem;
+        }
+        
+        .footer-tagline {
+          font-style: italic;
+          opacity: 0.8;
+        }
+        
+        .footer-bottom {
+          text-align: center;
+          padding-top: 2rem;
+          border-top: 1px solid rgba(255,255,255,0.1);
+          opacity: 0.7;
+        }
+        
+        /* Responsive */
+        @media (max-width: 968px) {
+          .hero {
+            grid-template-columns: 1fr;
+            padding: 4rem 2rem;
+          }
+          
+          .hero-decoration {
+            height: 300px;
+          }
+          
+          .book-stack {
+            width: 250px;
+            height: 300px;
+          }
+          
+          .nav-links {
+            display: none;
+          }
+          
+          .books-grid {
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+          }
+        }
+        
+        @media (max-width: 640px) {
+          .nav-container {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+          }
+          
+          .newsletter-form {
+            flex-direction: column;
+          }
+          
+          .newsletter-input {
+            width: 100%;
+          }
+        }
+      `}</style>
+    </LanguageProvider>
+  );
+};
+
+export default App;
+
