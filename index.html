@@ -13,28 +13,6 @@
 </html>
 
 
-
-
-
-
-
-// Language Provider - LanguageProvider.jsx
-const LanguageProvider = ({ children }) => {
-  const [language, setLanguage] = useState('en');
-  
-  const toggleLanguage = () => {
-    setLanguage(prev => prev === 'en' ? 'fr' : 'en');
-  };
-  
-  const t = translations[language];
-  
-  return (
-    <LanguageContext.Provider value={{ language, toggleLanguage, t }}>
-      {children}
-    </LanguageContext.Provider>
-  );
-};
-
 // Language Toggle Component - LanguageToggle.jsx
 const LanguageToggle = () => {
   const { language, toggleLanguage } = useLanguage();
