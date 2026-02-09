@@ -1,4 +1,6 @@
-const LanguageToggle = () => {
+import { useLanguage } from "./CustomHook.jsx";
+
+export const LanguageToggle = () => {
   const { language, toggleLanguage } = useLanguage();
 
   return (

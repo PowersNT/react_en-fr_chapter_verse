@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useState } from "react";
+import { LanguageProvider } from "./components/LanguageProvider.jsx";
+import { Navigation } from "./components/Navigation.jsx";
+import { Hero } from "./components/Hero.jsx";
+// import { FeaturedBooks } from "./components/FeaturedBooks.jsx";
+// import { Services } from "./components/Services.jsx";
+// import { Newsletter } from "./components/Newsletter.jsx";
+import { Footer } from "./components/Footer.jsx";
 import "./App.css";
 
 const App = () => {
@@ -7,9 +13,10 @@ const App = () => {
       <div className="app">
         <Navigation />
         <Hero />
-        <FeaturedBooks />
-        <Services />
-        <Newsletter />
+        {/* <FeaturedBooks /> */}
+        {/* <Services /> */}
+        {/* <Newsletter /> */}
+
         <Footer />
       </div>
     </LanguageProvider>

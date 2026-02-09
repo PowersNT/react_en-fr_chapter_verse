@@ -1,5 +1,8 @@
-const Navigation = () => {
-  const { t } = useLanguage();
+import { useLanguage } from "./CustomHook.jsx";
+import { LanguageToggle } from "./LanguageToggle.jsx";
+
+export const Navigation = () => {
+  const { translation } = useLanguage();
 
   return (
     <nav className="navigation">
@@ -12,34 +15,14 @@ const Navigation = () => {
           </div>
         </div>
         <div className="nav-links">
-          <a href="#home">{t.nav.home}</a>
-          <a href="#catalog">{t.nav.catalog}</a>
-          <a href="#events">{t.nav.events}</a>
-          <a href="#about">{t.nav.about}</a>
-          <a href="#contact">{t.nav.contact}</a>
+          <a href="#home">{translation.nav.home}</a>
+          <a href="#catalog">{translation.nav.catalog}</a>
+          <a href="#events">{translation.nav.events}</a>
+          <a href="#about">{translation.nav.about}</a>
+          <a href="#contact">{translation.nav.contact}</a>
         </div>
         <LanguageToggle />
       </div>
     </nav>
-  );
-};
-
-const Hero = () => {
-  const { t } = useLanguage();
-
-  return (
-    <section className="hero">
-      <div className="hero-content">
-        <h1 className="hero-title">{t.hero.title}</h1>
-        <p className="hero-subtitle">{t.hero.subtitle}</p>
-        <div className="hero-cta">
-          <button className="btn btn-primary">{t.hero.cta}</button>
-          <button className="btn btn-secondary">{t.hero.secondary}</button>
-        </div>
-      </div>
-      <div className="hero-decoration">
-        <div className="book-stack"></div>
-      </div>
-    </section>
   );
 };

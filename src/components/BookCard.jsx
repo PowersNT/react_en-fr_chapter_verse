@@ -1,4 +1,6 @@
-const BookCard = ({ book }) => {
+import { useLanguage } from "./CustomHook.jsx";
+
+export const BookCard = ({ book }) => {
   return (
     <div className="book-card">
       <div className="book-cover">
@@ -17,7 +19,7 @@ const BookCard = ({ book }) => {
   );
 };
 
-const FeaturedBooks = () => {
+export const FeaturedBooks = () => {
   const { t } = useLanguage();
 
   const books = [t.books.book1, t.books.book2, t.books.book3, t.books.book4];
@@ -41,7 +43,7 @@ const FeaturedBooks = () => {
   );
 };
 
-const Services = () => {
+export const Services = () => {
   const { t } = useLanguage();
 
   const services = [
@@ -66,7 +68,7 @@ const Services = () => {
   );
 };
 
-const Newsletter = () => {
+export const Newsletter = () => {
   const { t } = useLanguage();
 
   return (
